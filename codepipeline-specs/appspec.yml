@@ -1,0 +1,20 @@
+version: 0.0
+os: linux
+files:
+  - source: devops-artifacts/nginx.conf
+    destination: /home/ec2-user
+    overwrite: true
+  - source: .
+    destination: /home/ec2-user
+    overwrite: true
+
+file_exists_behavior: OVERWRITE
+
+hooks:
+  AfterInstall:
+    - location: devops-artifacts/scripts/nginx.sh
+      timeout: 300
+      runas: ec2-user
+    - location: devops-artifacts/scripts/app.sh
+      timeout: 300
+      runas: ec2-user

@@ -1,0 +1,6 @@
+bucket                  = "your_bucket"
+shared_credentials_file = "~/.aws/credentials"
+profile                 = "your_awscli_profile"
+key                     = "tf-workspaces/eks/dev_tf.tfstate"
+region                  = "us-east-1"
+encrypt                 = true
